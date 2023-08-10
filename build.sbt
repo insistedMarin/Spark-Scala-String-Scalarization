@@ -10,7 +10,8 @@
         "org.apache.spark" %% "spark-sql" % "3.4.1",
         "org.apache.spark" %% "spark-mllib" % "3.4.1",
         "org.glassfish" % "javax.json" % "1.1.4",
-        "com.github.scopt" %% "scopt" % "4.1.0"
+        "com.github.scopt" %% "scopt" % "4.1.0",
+        "org.json" % "json" % "20230227"
 
       )
     )

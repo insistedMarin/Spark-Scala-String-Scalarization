@@ -2,3 +2,5 @@
 src/data/output/**
 src/data/model/**
 Main.scala
+.gitignore
+src/data/map/**
