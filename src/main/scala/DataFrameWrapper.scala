@@ -18,10 +18,34 @@ class DataFrameWrapper(df:DataFrame) {
     new DenseVector(vector).toSparse
   })
 
-  def encodeAndReduce(columnName: String, numOfValues: Int): DataFrame = {
+  private def listToOneHotWithMapUDF(mappingArray: Array[String]) = udf((list: Seq[String]) => {
+    val numOfValues = mappingArray.length
+    val vector = Array.fill(numOfValues)(0.0)
+
+    // Handle null or empty values
+    Option(list).getOrElse(Seq()).foreach { value =>
+      val index = mappingArray.indexOf(value)
+      if (index >= 0 && index < numOfValues) vector(index) = 1.0
+    }
+
+    new DenseVector(vector).toSparse
+  })
+
+
+  def encodeAndReduce(columnName: String, numOfValues: Option[Int] = None, mappingArray: Option[Array[String]] = None): DataFrame = {
+    if (numOfValues.isDefined && mappingArray.isDefined) {
+      throw new IllegalArgumentException("Please provide either numOfValues or mappingArray, but not both.")
+    }
     // Pre-processing: Convert the string column to an array of integers and then to a One-Hot encoded vector
-    val processedData = df.withColumn(columnName, split(expr(s"substring(${columnName}, 2, length(${columnName})-2)"), ",").cast("array<int>"))
-      .withColumn(columnName, listToOneHotUDF(numOfValues)(col(columnName)))
+val processedData = (numOfValues, mappingArray) match {
+  case (Some(dim), None) =>
+    df.withColumn(columnName, split(expr(s"substring(${columnName}, 2, length(${columnName})-2)"), ",").cast("array<int>"))
+      .withColumn(columnName, listToOneHotUDF(dim)(col(columnName)))
+  case (None, Some(arr)) =>
+    df.withColumn(columnName, split(expr(s"substring(${columnName}, 2, length(${columnName})-2)"), ",").cast("array<int>"))
+      .withColumn(columnName, listToOneHotWithMapUDF(arr)(col(columnName)))
+  case _ => throw new IllegalArgumentException("Please provide either numOfValues or mappingArray.")
+}
 
     // Create a dense vector for PCA
     val assembler = new VectorAssembler()
@@ -58,7 +82,7 @@ class DataFrameWrapper(df:DataFrame) {
       .withColumn(columnName, vectorToFirstElementUDF(col(columnName)))
   }
 
-  def encodingString(name: String): DataFrame = {
+  def encodeString(name: String): DataFrame = {
     val path = "src/data/model/encode_list_" + name
 
     if (!Files.exists(Paths.get(path))) {
