@@ -1,0 +1,4 @@
+*.csv
+src/data/output/**
+src/data/model/**
+Main.scala
