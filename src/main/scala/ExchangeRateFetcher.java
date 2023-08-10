@@ -6,7 +6,7 @@ import java.time.*;
 
 public class ExchangeRateFetcher {
 
-    private static final String API_URL = "http://apilayer.net/api/live?access_key=71cb6d1a396d611c1f5296e77ef6c60b&currencies=MUR,XPF,EUR&source=USD&format=1";
+    private static final String API_URL = "";
     private static final String JSON_FILE_PATH = "src/data/rates.json";
     public static JsonObject getRates() throws IOException {
         File jsonFile = new File(JSON_FILE_PATH);
