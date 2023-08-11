@@ -1,3 +1,5 @@
+package MappingListString;
+
 import org.json.JSONObject;
 import org.json.JSONArray;
 
@@ -8,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 public class Test {
     public static void main(String[] args) {
-        String filePath = "src/data/map/equipment_type.json";
+        String filePath = "src/data/map/room.json";
         try {
             // 读取文件内容
             String content = new String(Files.readAllBytes(Paths.get(filePath)));
