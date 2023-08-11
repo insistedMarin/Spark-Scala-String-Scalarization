@@ -24,17 +24,17 @@ This project contains several functions to process and transform string data int
 - **Currency Conversion**:
     - Convert a given currency value to USD using real-time fetched exchange rates.
     - Example usage:
-      \```scala
+      ```scala
       val convertCurrency: UserDefinedFunction = udf((amount: Double, currency: String) => {...}
-      \```
+      ```
 
 - **String Encoding**:
     - Encodes strings based on an indexing system.
     - Indexing models are saved in the `data/model` directory for future consistency.
     - Example usage:
-      \```scala
+      ```scala
       def encodeString(name: String): DataFrame = {...}
-      \```
+      ```
 
 - **Array Encoding and PCA Reduction**:
     - Handles arrays in string format. There are two variants:
@@ -42,18 +42,18 @@ This project contains several functions to process and transform string data int
         2. General case handling any array values with a provided mapping array.
     - Converts arrays to one-hot encoded vectors followed by PCA reduction.
     - Example usage:
-      \```scala
+      ```scala
       def encodeAndReduce(columnName: String, numOfValues: Option[Int] = None, mappingArray: Option[Array[String]] = None): DataFrame = {...}
-      \```
+      ```
 
 - **PCA Reduction for Sparse Attributes**:
     - Reduces dimensionality of specified columns.
     - Combines columns into a single vector and applies PCA.
     - Extracts reduced attributes from PCA vectors.
     - Example usage:
-      \```scala
+      ```scala
       def applyPCA(columns: List[String], k: Int): DataFrame = {...}
-      \```
+      ```
 
 ## Data and Execution
 
