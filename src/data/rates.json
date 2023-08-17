@@ -1,1 +1,12 @@
-{"success":true,"terms":"https://currencylayer.com/terms","privacy":"https://currencylayer.com/privacy","timestamp":1691674083,"source":"USD","quotes":{"USDMUR":45.203646,"USDXPF":109.150406,"USDEUR":0.90804}}}}
+{
+  "success":true,
+  "terms":"https:\/\/currencylayer.com\/terms",
+  "privacy":"https:\/\/currencylayer.com\/privacy",
+  "timestamp":1692182523,
+  "source":"USD",
+  "quotes":{
+    "USDMUR":45.802086,
+    "USDXPF":109.7949,
+    "USDEUR":0.91579
+  }
+}

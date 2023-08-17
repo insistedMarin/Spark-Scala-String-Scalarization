@@ -95,7 +95,7 @@ class DataFrameWrapper(df:DataFrame) {
   }
 
   def encodeString(name: String): DataFrame = {
-    val path = "src/data/model/encode_list_" + name
+    val path = "src/model/encode_list_" + name
 
     if (!Files.exists(Paths.get(path))) {
       try {
@@ -173,6 +173,7 @@ class DataFrameWrapper(df:DataFrame) {
     }
 
     // Drop intermediate columns
-    outputDF.drop("features", "pcaFeatures")
+    outputDF.drop("features","pcaFeatures")
+      .drop(columns: _*)
   }
 }
