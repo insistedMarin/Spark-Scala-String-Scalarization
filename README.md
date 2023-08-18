@@ -69,10 +69,10 @@ This project contains several functions to process and transform string data int
 
 ## Docker Command
 
-'''cmd
+```cmd
 docker build -t image-name:tag .
-'''
+```
 
-'''cmd
+```cmd
 docker run -it -v src\data:/opt/spark/work-dir/src/data --name container-name image-name:tag 
-'''
+```
