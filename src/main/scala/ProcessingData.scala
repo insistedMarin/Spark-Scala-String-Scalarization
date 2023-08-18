@@ -20,7 +20,7 @@ class ProcessingData() {
 
   val convertCurrency: UserDefinedFunction = udf((amount: Double, currency: String) => {
     if (amount!= null && currency != null){
-    val rateFetcher = ExchangeRateFetcher.getRates.getJsonObject("quotes")
+    val rateFetcher = ExchangeRateFetcher.rates.getJsonObject("quotes")
     val javaMap = rateFetcher.entrySet().asScala.map(entry => entry.getKey.replace("USD", "") -> entry.getValue.toString.toDouble).toMap
     val rateMap: Map[String, Double] = javaMap
     rateMap.get(currency) match {

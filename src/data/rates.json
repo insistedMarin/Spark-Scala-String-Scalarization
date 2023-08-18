@@ -2,11 +2,11 @@
   "success":true,
   "terms":"https:\/\/currencylayer.com\/terms",
   "privacy":"https:\/\/currencylayer.com\/privacy",
-  "timestamp":1692182523,
+  "timestamp":1692353043,
   "source":"USD",
   "quotes":{
-    "USDMUR":45.802086,
-    "USDXPF":109.7949,
-    "USDEUR":0.91579
+    "USDMUR":45.40184,
+    "USDXPF":110.224975,
+    "USDEUR":0.91975
   }
 }
