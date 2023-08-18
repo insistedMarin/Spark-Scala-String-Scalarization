@@ -94,6 +94,15 @@ class DataFrameWrapper(df:DataFrame) {
       .withColumn(columnName, vectorToFirstElementUDF(col(columnName)))
   }
 
+  def processColumnIfPresent(columnName: String): DataFrame = {
+    val dataProcessor = new ProcessingData()
+    if (df.columns.contains(columnName)) {
+      df.withColumn("response",  dataProcessor.convertResponseValueUDF(col(columnName)))
+    } else {
+      df
+    }
+  }
+
   def encodeString(name: String): DataFrame = {
     val path = "src/data/model/encode_list_" + name
 
