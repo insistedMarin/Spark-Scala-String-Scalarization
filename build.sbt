@@ -13,7 +13,8 @@
         "com.github.scopt" %% "scopt" % "4.1.0",
         "org.json" % "json" % "20230227",
         "ch.qos.logback" % "logback-classic" % "1.4.7",
-        "org.apache.logging.log4j" % "log4j-core" % "2.20.0"
+        "org.apache.logging.log4j" % "log4j-core" % "2.20.0",
+        "org.apache.parquet" % "parquet-hadoop" % "1.13.1"
 
       ),
       assembly / assemblyMergeStrategy := {
