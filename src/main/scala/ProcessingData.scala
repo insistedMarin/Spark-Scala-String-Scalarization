@@ -1,7 +1,8 @@
 import org.apache.spark.sql.DataFrame
-import scala.jdk.CollectionConverters.CollectionHasAsScala
 import org.apache.spark.sql.expressions.UserDefinedFunction
 import org.apache.spark.sql.functions.udf
+
+import scala.jdk.CollectionConverters.asScalaSetConverter
 
 
 class ProcessingData() {

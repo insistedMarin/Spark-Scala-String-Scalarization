@@ -9,7 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../../project/project/target" />
       <excludeFolder url="file://$MODULE_DIR$/../../project/target" />
     </content>
-    <orderEntry type="jdk" jdkName="corretto-11" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" scope="PROVIDED">
       <library name="sbt: sbt-1.9.3">
