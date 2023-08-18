@@ -66,3 +66,13 @@ This project contains several functions to process and transform string data int
 
 - All transformation models are saved in the `data/model` directory.
 - For retraining any model, delete the corresponding model files. The system will retrain and save new models upon the next run.
+
+## Docker Command
+
+'''cmd
+docker build -t image-name:tag .
+'''
+
+'''cmd
+docker run -it -v src\data:/opt/spark/work-dir/src/data --name container-name image-name:tag 
+'''
