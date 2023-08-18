@@ -9,6 +9,7 @@ A data processing pipeline developed using Scala and Spark, aimed at preprocessi
 3. [Functionalities](#functionalities)
 4. [Data and Execution](#data-and-execution)
 5. [Retraining Models](#retraining-models)
+6. [Docker Command](#dokcer-command)
 
 ## Overview
 
