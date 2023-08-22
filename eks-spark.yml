@@ -1,20 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: spark-driver
+  name: spark-job
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: spark-driver
   template:
     metadata:
       labels:
         app: spark-driver
     spec:
+      restartPolicy: OnFailure
       containers:
       - name: spark-driver-container
-        image: <your-image-url>
+        image: 290071265645.dkr.ecr.eu-west-3.amazonaws.com/data-pipeline:latest
         workingDir: /opt/spark/work-dir
         volumeMounts:
         - mountPath: "/opt/spark/work-dir/src"
