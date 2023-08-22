@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-driver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spark-driver
+  template:
+    metadata:
+      labels:
+        app: spark-driver
+    spec:
+      containers:
+      - name: spark-driver-container
+        image: <your-image-url>
+        workingDir: /opt/spark/work-dir
+        volumeMounts:
+        - mountPath: "/opt/spark/work-dir/src"
+          name: my-volume
+        command:
+        - "/opt/spark/bin/spark-submit"
+        args:
+        - "--class"
+        - "Main"
+        - "local:///opt/spark/work-dir/dataprocessing-assembly-0.1.0-SNAPSHOT.jar"
+        - "-i"
+        - "src/data/0308.csv"
+        - "-o"
+        - "src/data/output/"
+      volumes:
+      - name: my-volume
+        persistentVolumeClaim:
+         claimName: my-efs-pvc
