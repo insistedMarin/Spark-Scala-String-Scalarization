@@ -11,7 +11,7 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: spark-driver-container
-        image: 290071265645.dkr.ecr.eu-west-3.amazonaws.com/data-pipeline:latest
+        image: <your-image-url>
         workingDir: /opt/spark/work-dir
         volumeMounts:
         - mountPath: "/opt/spark/work-dir/src"
