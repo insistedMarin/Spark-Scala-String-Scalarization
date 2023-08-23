@@ -77,3 +77,19 @@ docker build -t image-name:tag .
 ```cmd
 docker run -it -v src\data:/opt/spark/work-dir/src/data --name container-name image-name:tag 
 ```
+## EKS Deployment
+
+- Build a cluster on eks,
+- Create an EFS instance to mount model parameters and input and output data.
+- Configure VPC, security group and other necessary permissions.
+- Create PersistentVolume and PersistentVolumeClaim.
+
+```cmd
+kubectl apply -f persistent.yml
+```
+
+- run job
+
+```cmd
+kubectl apply -f eks-spark.yml
+```
