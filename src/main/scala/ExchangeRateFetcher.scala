@@ -6,7 +6,7 @@ import scala.io.Source
 
 object ExchangeRateFetcher {
 
-  private val API_URL = "http://apilayer.net/api/live?access_key=71cb6d1a396d611c1f5296e77ef6c60b&currencies=MUR,XPF,EUR&source=USD&format=1"
+  private val API_URL = "your url of https://currencylayer.com/"
   private val JSON_FILE_PATH = "src/data/rates.json"
   lazy val rates: JsonObject = getRates()
   private def getRates(): JsonObject = {
