@@ -94,9 +94,9 @@ COPY dataprocessing-assembly-0.1.0-SNAPSHOT.jar /opt/spark/work-dir
 ```cmd
 kubectl apply -f persistent.yml
 ```
-
-- run job
+- Run job
 
 ```cmd
 kubectl apply -f eks-spark.yml
 ```
+> **Note**: This job is applicable to the case where the **root** directory of EFS is the **data** folder. Make sure the file path in the image is **"/opt/spark/work-dir/src/data"**.
