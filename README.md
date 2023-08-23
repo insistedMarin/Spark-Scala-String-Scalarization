@@ -18,8 +18,8 @@ This project contains several functions to process and transform string data int
 
 ## Setup and Configuration
 
-1. Use **Java11** and **Scala2.12**, or the same configuration as the spark image you use.
-2. Ensure you **Hadoop** properly configured on your machine. If you are using Windows, make sure to add `winutils.exe` to the `bin` directory of your Hadoop installation.
+1. Use **Java11** and **Scala2.12**, or the same configuration as the Spark image you use.
+2. Ensure you have **Hadoop** properly configured on your machine. If you are using Windows, make sure to add `winutils.exe` to the `bin` directory of your Hadoop installation.
 
 > **Note for Windows Users**: You can download the necessary `winutils.exe` binaries from [this GitHub repository](https://github.com/steveloughran/winutils). Make sure to select the version that matches your Hadoop installation.
 3. Clone this repository. Please note that the data files have not been included in this repository. Therefore, the project cannot be directly executed.
