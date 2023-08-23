@@ -10,6 +10,7 @@ A data processing pipeline developed using Scala and Spark, aimed at preprocessi
 4. [Data and Execution](#data-and-execution)
 5. [Retraining Models](#retraining-models)
 6. [Docker Command](#docker-command)
+7. [EKS Deployment](#eks-deployment)
 
 ## Overview
 
@@ -79,9 +80,15 @@ docker run -it -v src\data:/opt/spark/work-dir/src/data --name container-name im
 ```
 ## EKS Deployment
 
-- Build a cluster on eks,
+- Build a cluster on eks.
 - Create an EFS instance to mount model parameters and input and output data.
 - Configure VPC, security group and other necessary permissions.
+- Create a more basic image for kubernetes jobs
+```cmd
+FROM apache/spark:3.4.1-scala2.12-java11-python3-r-ubuntu
+USER root
+COPY dataprocessing-assembly-0.1.0-SNAPSHOT.jar /opt/spark/work-dir
+```
 - Create PersistentVolume and PersistentVolumeClaim.
 
 ```cmd
