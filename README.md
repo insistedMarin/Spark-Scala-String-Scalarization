@@ -60,7 +60,7 @@ This project contains several functions to process and transform string data int
 
 ## Data and Execution
 
-- The main execution function (`main.scala`) is also not present. Users will need to handle execution specifics in their local setup.
+- The main execution function (`Main.scala`) is an exemple. Users will need to handle execution specifics in their local setup.
 - The `DataFrameWrapper` class uses Scala's implicit conversion feature. When using its functionalities on a Spark DataFrame, you simply need to import `DataFrameImplicit._`. This will allow you to access the added functionalities directly on the DataFrame instances.
 
 ## Retraining Models
