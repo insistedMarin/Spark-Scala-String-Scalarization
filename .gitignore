@@ -4,3 +4,4 @@ src/data/model/**
 .gitignore
 src/data/map/**
 target/**
+src/main/resources/**

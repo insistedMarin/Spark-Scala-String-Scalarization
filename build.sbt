@@ -14,7 +14,10 @@
         "org.json" % "json" % "20230227",
         "ch.qos.logback" % "logback-classic" % "1.4.7",
         "org.apache.logging.log4j" % "log4j-core" % "2.20.0",
-        "org.apache.parquet" % "parquet-hadoop" % "1.13.1"
+        "org.apache.parquet" % "parquet-hadoop" % "1.13.1",
+        "org.scalactic" %% "scalactic" % "3.2.15",
+        "org.scalatest" %% "scalatest" % "3.2.15" % "test",
+        "org.scalatest" %% "scalatest-funspec" % "3.2.15" % "test"
 
       ),
       assembly / assemblyMergeStrategy := {

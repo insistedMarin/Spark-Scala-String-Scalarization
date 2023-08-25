@@ -60,3 +60,4 @@ object ExchangeRateFetcher {
     rates
   }
 }
+
