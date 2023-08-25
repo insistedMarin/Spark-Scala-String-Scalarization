@@ -1,0 +1,62 @@
+{
+  "Undefined": {
+    "value": 0,
+    "texts": {}
+  },
+  "Unobstructed": {
+    "value": 1,
+    "texts": {}
+  },
+  "Montagne": {
+    "value": 2,
+    "texts": {}
+  },
+  "Campagne": {
+    "value": 3,
+    "texts": {}
+  },
+  "Cour": {
+    "value": 4,
+    "texts": {}
+  },
+  "CoursDEau": {
+    "value": 5,
+    "texts": {}
+  },
+  "Foret": {
+    "value": 6,
+    "texts": {}
+  },
+  "Jardin": {
+    "value": 7,
+    "texts": {}
+  },
+  "Mer": {
+    "value": 8,
+    "texts": {}
+  },
+  "Monument": {
+    "value": 9,
+    "texts": {}
+  },
+  "Parc": {
+    "value": 10,
+    "texts": {}
+  },
+  "Pistes": {
+    "value": 11,
+    "texts": {}
+  },
+  "Rue": {
+    "value": 12,
+    "texts": {}
+  },
+  "Vallee": {
+    "value": 13,
+    "texts": {}
+  },
+  "SansVisAVis": {
+    "value": 14,
+    "texts": {}
+  }
+}

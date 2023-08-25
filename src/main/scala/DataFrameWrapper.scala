@@ -35,14 +35,24 @@ class DataFrameWrapper(df:DataFrame) {
   })
 
 
-  def replaceInfinityWithMax(columnName: String): DataFrame = {
+  def replaceInfinityWithMax(columnName: String,max:Double): DataFrame = {
     // Step 1: Find the largest value in the column excluding Infinity
-    val maxValExcludingInfinity = df.filter(col(columnName) =!= PositiveInfinity)
-      .agg(F.max(col(columnName)))
-      .head().getDouble(0)
+    val maxValExcludingInfinity = if (df.filter(col(columnName).isNotNull).isEmpty) {
+      max
+    } else {
+      df.filter(col(columnName) =!= Double.PositiveInfinity)
+        .agg(F.max(columnName))
+        .head().getDouble(0)
+    }
+
+    val actualMaxValue:Double = if (maxValExcludingInfinity == Double.PositiveInfinity) {
+      max
+    } else {
+      maxValExcludingInfinity
+    }
 
     // Step 2: Replace Infinity with the maximum value found
-    df.withColumn(columnName, when(col(columnName) === Double.PositiveInfinity, maxValExcludingInfinity*3+1).otherwise(col(columnName)))
+    df.withColumn(columnName, when(col(columnName) === Double.PositiveInfinity, actualMaxValue*3+1).otherwise(col(columnName)))
   }
   def encodeAndReduce(columnName: String, numOfValues: Option[Int] = None, mappingArray: Option[Array[String]] = None): DataFrame = {
     if (numOfValues.isDefined && mappingArray.isDefined) {
