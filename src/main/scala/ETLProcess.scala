@@ -67,6 +67,7 @@ class ETLProcess(private val spark: SparkSession) {
         curr.schema(c).dataType match {
           case _: NumericType => curr.withColumn(c, when(col(c).isNull, -1).otherwise(col(c)))
           case _: BooleanType => curr.withColumn(c, when(col(c).isNull, -1).otherwise(col(c).cast("integer")))
+          case _: StringType => curr.withColumn(c, when(col(c).isNull, -1).otherwise(col(c).cast("double")))
           case _ => curr
         }
     }.applyPCA(restoredIterable.toList, 5)
